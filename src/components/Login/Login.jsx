@@ -29,14 +29,14 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
                 <TextField
                     label="Email"
-                    margin="normal"
+                    fullWidth
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <TextField
                     label="Password"
                     type="password"
-                    margin="normal"
+                    fullWidth
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
