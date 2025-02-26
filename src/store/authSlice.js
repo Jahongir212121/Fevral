@@ -3,7 +3,7 @@ import axios from "axios";
 
 const authSlice = createSlice({
     name: "auth",
-    initialState: { user: null,  error: null },
+    initialState: { user: null, error: null },
     reducers: {
         loginSuccess: (state, action) => {
             state.user = action.payload;
@@ -23,24 +23,24 @@ export const registerUser = createAsyncThunk("auth/registerUser", async (userDat
     return response.data;
 });
 
-export const loginUser = ({ email }) => async (dispatch) => {
+export const loginUser = ({ email, password }) => async (dispatch) => {
     try {
         const response = await axios.get(
             "https://login-33f8f-default-rtdb.asia-southeast1.firebasedatabase.app/users.json"
         );
         let user = null;
         for (let azob in response.data) {
-            if (response.data[azob].email === email) {
+            if (response.data[azob].email === email && response.data[azob].password === password) {
                 user = response.data[azob];
             }
         }
         if (!user) {
-            dispatch(loginFailure("Bunday foydalanuvchi yoq!"));
+            dispatch(loginFailure("Hatolik serverda yoki emailda yoki parolda!"));
             return;
-        } 
+        }
         dispatch(loginSuccess(user));
     } catch (error) {
-        dispatch(loginFailure("Hatolik serverda"));
+        dispatch(loginFailure("Hatolik serverda!"));
     }
 };
 
