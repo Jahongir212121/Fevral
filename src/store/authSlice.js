@@ -16,12 +16,28 @@ const authSlice = createSlice({
 });
 
 export const registerUser = createAsyncThunk("auth/registerUser", async (userData) => {
-    const response = await axios.post(
-        "https://login-33f8f-default-rtdb.asia-southeast1.firebasedatabase.app/users.json",
-        userData
-    );
-    return response.data;
+    try {
+        const response = await axios.get(
+            "https://login-33f8f-default-rtdb.asia-southeast1.firebasedatabase.app/users.json"
+        );
+
+        const users = response.data;
+        for (let key in users) {
+            if (users[key].email === userData.email) {
+                return "Bunday user bor!";
+            }
+        }
+        await axios.post(
+            "https://login-33f8f-default-rtdb.asia-southeast1.firebasedatabase.app/users.json",
+            userData
+        );
+
+        return "User qoʻshildi!";
+    } catch (error) {
+        return "Server xatosi!";
+    }
 });
+
 
 export const loginUser = ({ email, password }) => async (dispatch) => {
     try {
