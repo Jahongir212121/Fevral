@@ -19,12 +19,12 @@ const Register = () => {
         <Container>
             <Typography variant="h4">Register</Typography>
             <form onSubmit={handleSubmit}>
-                <TextField label="Email" fullWidth margin="normal" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <TextField label="Password" type="password" fullWidth margin="normal" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <TextField label="Email" fullWidth value={email} onChange={(e) => setEmail(e.target.value)} />
+                <TextField label="Password" type="password" fullWidth value={password} onChange={(e) => setPassword(e.target.value)} />
                 <Button type="submit" variant="contained" color="primary">Register</Button>
             </form>
             <Typography variant="h5">Already Registered <Link to='/login'>Login</Link></Typography>
-            
+
         </Container>
     );
 };

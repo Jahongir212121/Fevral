@@ -9,7 +9,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { error, loading, user } = useSelector((state) => state.auth);
+    const { error, user } = useSelector((state) => state.auth);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -29,7 +29,6 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
                 <TextField
                     label="Email"
-                    fullWidth
                     margin="normal"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -37,7 +36,6 @@ const Login = () => {
                 <TextField
                     label="Password"
                     type="password"
-                    fullWidth
                     margin="normal"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
