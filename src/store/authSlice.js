@@ -30,9 +30,12 @@ export const loginUser = ({ email }) => async (dispatch) => {
         const response = await axios.get(
             "https://login-33f8f-default-rtdb.asia-southeast1.firebasedatabase.app/users.json"
         );
-        const users = Object.values(response.data);
-        const user = users.find((user) => user.email === email);
-
+        let user = null;
+        for (let key in response.data) {
+            if (response.data[key].email === email) {
+                user = response.data[key];
+            }
+        }
         if (!user) {
             dispatch(loginFailure("Bunday foydalanuvchi yoq!"));
             return;
