@@ -16,7 +16,7 @@ const Register = () => {
     };
 
     return (
-        <Container>
+        <Container> 
             <Typography variant="h4">Register</Typography>
             <form onSubmit={handleSubmit}>
                 <TextField label="Email" fullWidth value={email} onChange={(e) => setEmail(e.target.value)} />

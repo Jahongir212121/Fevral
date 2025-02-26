@@ -37,7 +37,7 @@ export const loginUser = ({ email }) => async (dispatch) => {
         if (!user) {
             dispatch(loginFailure("Bunday foydalanuvchi yoq!"));
             return;
-        }
+        } 
         dispatch(loginSuccess(user));
     } catch (error) {
         dispatch(loginFailure("Hatolik serverda"));

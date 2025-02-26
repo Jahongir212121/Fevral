@@ -6,7 +6,7 @@ import { Container } from "@mui/material";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import PrivatePage from "./components/PrivatePage/PrivatePage";
-
+import "./App.css"
 const router = createBrowserRouter([
   { path: "/", element: <Register /> },
   { path: "/login", element: <Login /> },

@@ -47,7 +47,7 @@ const Login = () => {
 
             <Typography variant="h5">
                 Do not have an account? <Link to="/">Register</Link>
-            </Typography>
+            </Typography> 
         </Container>
     );
 };
