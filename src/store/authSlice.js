@@ -29,9 +29,9 @@ export const loginUser = ({ email }) => async (dispatch) => {
             "https://login-33f8f-default-rtdb.asia-southeast1.firebasedatabase.app/users.json"
         );
         let user = null;
-        for (let key in response.data) {
-            if (response.data[key].email === email) {
-                user = response.data[key];
+        for (let azob in response.data) {
+            if (response.data[azob].email === email) {
+                user = response.data[azob];
             }
         }
         if (!user) {
