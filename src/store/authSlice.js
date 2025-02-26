@@ -3,15 +3,13 @@ import axios from "axios";
 
 const authSlice = createSlice({
     name: "auth",
-    initialState: { user: null, loading: false, error: null },
+    initialState: { user: null,  error: null },
     reducers: {
         loginSuccess: (state, action) => {
-            state.loading = false;
             state.user = action.payload;
             state.error = null;
         },
         loginFailure: (state, action) => {
-            state.loading = false;
             state.error = action.payload;
         },
     }
